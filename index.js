@@ -2,11 +2,13 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const colors = require('colors');
 
-const questions = [
+inquirer
+    .prompt([
     {
         type: 'input',
         name: 'logoText',
         message: 'Enter up to three characters for your logo:',
+
     },
     {
         type: 'input',
@@ -24,4 +26,4 @@ const questions = [
         name: 'shapeColor',
         message: 'What color for your shape?',
     }
-];
+]);
