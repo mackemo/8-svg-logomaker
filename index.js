@@ -52,4 +52,14 @@ inquirer
             return true; 
         }
     }
-]);
+]) 
+    .then((response) => {
+        const filename = `logo.svg`;
+        fs.writeFile(filename, (response), (err) => 
+            err ? console.error(err) : console.log("Generated logo.svg"))
+    })
+
+    .catch(function (error) {
+        console.error("Error occurred:", error);
+    });
+    
