@@ -10,7 +10,7 @@ inquirer
         message: 'Enter up to three characters for your logo:',
         validate: function(input) {
             if (input.length <= 3) {
-                return 'Logo must have three charcters or less.';
+                return 'Logo must have three characters or less.';
             }
             if (!input.match(/^[a-zA-Z0-9]+$/)) {
                 return 'Logo text must be alphanumeric.';
