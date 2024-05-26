@@ -1,16 +1,16 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const colors = require('colors');
+const Logo = require('./lib/logo')
 
-inquirer
-    .prompt([
+const questions = [
     {
         type: 'input',
         name: 'logoText',
         message: 'Enter up to three characters for your logo:',
         validate: function(input) {
             if (input.length <= 3) {
-                return 'Logo must have three charcters or less.';
+                return 'Logo must have three characters or less.';
             }
             if (!input.match(/^[a-zA-Z0-9]+$/)) {
                 return 'Logo text must be alphanumeric.';
@@ -52,14 +52,25 @@ inquirer
             return true; 
         }
     }
-]) 
-    .then((response) => {
-        const filename = `logo.svg`;
-        fs.writeFile(filename, (response), (err) => 
-            err ? console.error(err) : console.log("Generated logo.svg"))
-    })
+];
 
-    .catch(function (error) {
-        console.error("Error occurred:", error);
-    });
-    
+function writeToFile(data) {
+    const filename = `logo.svg`;
+    fs.writeFile(filename, JSON.stringify(data), (err) => 
+        err ? console.error(err) : console.log("Generated logo.svg"))
+}
+
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((data) => {
+            const logo = new Logo(data.logoText, data.textColor, data.logoShape, data.shapeColor);
+            writeToFile(logo);
+        })
+
+        .catch(function(err) {
+            console.error("Error occurred:", err);
+        });      
+}
+
+init();
