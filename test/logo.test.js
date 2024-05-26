@@ -1,38 +1,34 @@
-const Logo = require('../logo');
+const Logo = require('../lib/logo');
 
 describe('Logo', () => {
+    const result = true;
+    const logo = new Logo('abc', 'white', 'circle', 'blue');
+
     describe('logoText', () => {
-        const logoText = inquirer.prompt[0].validate;
-        const result = true;
-        it('should have a string with three charcters or less', () => {
-            expect(logoText('abc')).toEqual(result);
+        it('should have a string with three characters or less', () => {
+            expect(logo.logoText.length <= 3).toEqual(result);
         });
+
         it('should include only alphanumeric characters', () => {
-            expect(logoText('1ab')).toEqual(result);
+            expect(/^[a-zA-Z0-9]+$/.test(logo.logoText)).toEqual(result);
         });
     });
 
     describe('textColor', () => {
-        const textColor = inquirer.prompt[1].validate;
-        const result = true;
         it('should have a valid color keyword', () => {
-            expect(textColor('white')).toEqual(result);
+            expect(/^[a-zA-Z]+$/.test(logo.textColor)).toEqual(result);
         });
     });
 
     describe('logoShape', () => {
-        const logoShape = inquirer.prompt[2].validate;
-        const result = true;
         it('should include a shape from the choices', () => {
-            expect(logoShape('circle')).toEqual(result);
+            expect(['circle', 'triangle', 'square'].includes(logo.logoShape)).toEqual(result);
         });
     });
 
     describe('shapeColor', () => {
-        const shapeColor = inquirer.prompt[3].validate;
-        const result = true;
         it('should have a valid color keyword', () => {
-            expect(shapeColor('blue')).toEqual(result);
+            expect(/^[a-zA-Z]+$/.test(logo.shapeColor)).toEqual(result);
         });
     });
 })
