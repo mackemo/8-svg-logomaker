@@ -55,9 +55,9 @@ const questions = [
     }
 ];
 
-function writeToFile(data) {
+function writeToFile(logo) {
     const filename = `logo.svg`;
-    fs.writeFile(filename, generateSVG(data), (err) => 
+    fs.writeFile(filename, generateSVG(logo), (err) => 
         err ? console.error(err) : console.log("Generated logo.svg"))
 }
 
