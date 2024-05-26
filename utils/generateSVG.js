@@ -25,5 +25,4 @@ function generateSVG () {
 
     return svg;
 }
-
 module.exports = generateSVG;
