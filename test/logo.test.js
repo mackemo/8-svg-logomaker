@@ -6,7 +6,7 @@ describe('Logo', () => {
 
     describe('logoText', () => {
         it('should have a string with three characters or less', () => {
-            expect(logo.logoText.length <= 3).toEqual(result);
+            expect(logo.logoText.length < 3).toEqual(result);
         });
 
         it('should include only alphanumeric characters', () => {

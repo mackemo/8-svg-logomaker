@@ -1,7 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const colors = require('colors');
-const Logo = require('./lib/logo')
+const Logo = require('./lib/logo');
+const generateSVG = require('./utils/generateSVG');
 
 const questions = [
     {
@@ -9,7 +10,7 @@ const questions = [
         name: 'logoText',
         message: 'Enter up to three characters for your logo:',
         validate: function(input) {
-            if (input.length <= 3) {
+            if (input.length < 3) {
                 return 'Logo must have three characters or less.';
             }
             if (!input.match(/^[a-zA-Z0-9]+$/)) {
@@ -56,7 +57,7 @@ const questions = [
 
 function writeToFile(data) {
     const filename = `logo.svg`;
-    fs.writeFile(filename, JSON.stringify(data), (err) => 
+    fs.writeFile(filename, generateSVG(data), (err) => 
         err ? console.error(err) : console.log("Generated logo.svg"))
 }
 
