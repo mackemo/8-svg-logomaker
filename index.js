@@ -4,6 +4,7 @@ const colors = require('colors');
 const Logo = require('./lib/logo');
 const generateSVG = require('./utils/generateSVG');
 
+// user input questions
 const questions = [
     {
         type: 'input',
@@ -55,12 +56,14 @@ const questions = [
     }
 ];
 
+//  function for writing data to a file
 function writeToFile(logo) {
     const filename = `logo.svg`;
     fs.writeFile(filename, generateSVG(logo), (err) => 
         err ? console.error(err) : console.log(colors.green("Generated logo.svg")))
 }
 
+//  function for processing user input then using write to file function
 function init() {
     inquirer
         .prompt(questions)

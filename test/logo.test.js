@@ -1,5 +1,6 @@
 const Logo = require('../lib/logo');
 
+// testing each question in prompt
 describe('Logo', () => {
     const result = true;
     const logo = new Logo('abc', 'white', 'circle', 'blue');
