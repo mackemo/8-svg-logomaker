@@ -2,8 +2,8 @@ function generateSVG(logo) {
     let svg = '';
 
     // set width and height
-    const width = 100;
-    const height = 100;
+    const width = 300;
+    const height = 200;
 
     // SVG header
     svg += `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">`;
