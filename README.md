@@ -25,7 +25,7 @@ The process included creating a test folder and writing tests for the inquirer p
 
 
 ## Links
-Link to video of application: 
+Link to video of application: https://drive.google.com/file/d/1dL5c2ptSsVas_cwclkuP5_EEBa3kF2lc/view
 
 
 ## Installation

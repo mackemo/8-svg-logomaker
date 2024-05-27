@@ -58,7 +58,7 @@ const questions = [
 function writeToFile(logo) {
     const filename = `logo.svg`;
     fs.writeFile(filename, generateSVG(logo), (err) => 
-        err ? console.error(err) : console.log("Generated logo.svg"))
+        err ? console.error(err) : console.log(colors.green("Generated logo.svg")))
 }
 
 function init() {
@@ -70,7 +70,7 @@ function init() {
         })
 
         .catch(function(err) {
-            console.error("Error occurred:", err);
+            console.error(colors.red("Error occurred:", err));
         });      
 }
 
