@@ -1,4 +1,4 @@
-function generateSVG () {
+function generateSVG(logo) {
     let svg = '';
 
     // set width and height

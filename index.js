@@ -10,7 +10,7 @@ const questions = [
         name: 'logoText',
         message: 'Enter up to three characters for your logo:',
         validate: function(input) {
-            if (input.length < 3) {
+            if (input.length > 3) {
                 return 'Logo must have three characters or less.';
             }
             if (!input.match(/^[a-zA-Z0-9]+$/)) {
