@@ -19,13 +19,14 @@ The eighth challenge assignment from a bootcamp where the task was to build a No
 -[Acknowledgement](#Acknowledgement)
 -[Questions](#Questions)
 
+<img src="./assets/image.png"/>
 
 ## Process
 The process included creating a test folder and writing tests for the inquirer prompt questions. For the four questions of logo text, text color, logo shape, and shape color, the tests tested whether the user input met the criteria for each question. The index.js file included the questions for user input. The process for creating the questions included adding a validate for the criteria of each question. For example, if the user inputted logo text to be more than 3 characters, the validation would give back an error that the logo must be three characters or less. In the util folder, a generateSVG file was created to alter the data recieved from the user to be put into svg markup language to create the logo. A logo.js file was created to create a Logo object so that each new logo created would be an instance of the object. Once all the data is inputted, the data goes through svg markup and creates a new file called logo.svg that can be opened. The opened file is the image of the logo as 300x200 pixels.
 
 
 ## Links
-Link to video of application: https://drive.google.com/file/d/1dL5c2ptSsVas_cwclkuP5_EEBa3kF2lc/view
+Link to video of application: https://drive.google.com/file/d/18m54p5Alod3h7vgm4g7PNVSw3508067b/view
 
 
 ## Installation
