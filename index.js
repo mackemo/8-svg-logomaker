@@ -57,9 +57,9 @@ const questions = [
 ];
 
 //  function for writing data to a file
-function writeToFile(logo) {
+function writeToFile(shape) {
     const filename = `logo.svg`;
-    fs.writeFile(filename, generateSVG(logo), (err) => 
+    fs.writeFile(filename, generateSVG(shape), (err) => 
         err ? console.error(err) : console.log(colors.green("Generated logo.svg")))
 }
 
@@ -68,6 +68,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
+            let shape;
             switch(data.shape) {
                 case 'circle':
                     shape = new Circle(data.text, data.textColor, data.shapeColor);
@@ -81,7 +82,7 @@ function init() {
                 default:
                     break;
             }
-            writeToFile(logo);
+            writeToFile(shape);
         })
 
         .catch(function(err) {
