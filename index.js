@@ -1,14 +1,14 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const colors = require('colors');
-const Logo = require('./lib/logo');
+const { Circle, Triangle, Square } = require('./lib/shapes');
 const generateSVG = require('./utils/generateSVG');
 
 // user input questions
 const questions = [
     {
         type: 'input',
-        name: 'logoText',
+        name: 'text',
         message: 'Enter up to three characters for your logo:',
         validate: function(input) {
             if (input.length > 3) {
@@ -33,7 +33,7 @@ const questions = [
     }, 
     {
         type: 'list',
-        name: 'logoShape',
+        name: 'shape',
         message: 'Which shape would you like for your logo?', 
         choices: ['circle', 'triangle', 'square'],
         validate: function(input) {
@@ -68,7 +68,19 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            const logo = new Logo(data.logoText, data.textColor, data.logoShape, data.shapeColor);
+            switch(data.shape) {
+                case 'circle':
+                    shape = new Circle(data.text, data.textColor, data.shapeColor);
+                    break;
+                case 'triangle':
+                    shape = new Triangle(data.text, data.textColor, data.shapeColor);
+                    break;
+                case 'square':
+                    shape = new Square(data.text, data.textColor, data.shapeColor);
+                    break;
+                default:
+                    break;
+            }
             writeToFile(logo);
         })
 
